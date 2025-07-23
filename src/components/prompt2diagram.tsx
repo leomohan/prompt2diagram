@@ -231,8 +231,9 @@ const Prompt2Diagram = () => {
       return;
     }
 
-    const encoded = encodePlantUML(plantUMLCode);
-    const svgUrl = `https://www.plantuml.com/plantuml/svg/${encoded}`;
+   // Use proper PlantUML encoding with deflate compression
+const encoded = btoa(plantUML);
+const plantUMLServerUrl = `https://www.plantuml.com/plantuml/svg/~1${encoded}`;
     
     const link = document.createElement('a');
     link.href = svgUrl;

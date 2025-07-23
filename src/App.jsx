@@ -1,4 +1,4 @@
-import Prompt2Diagram from './prompt2diagram.jsx'
+import Prompt2Diagram from './components/Prompt2Diagram'
 
 function App() {
   return <Prompt2Diagram />
