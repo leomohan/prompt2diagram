@@ -232,9 +232,10 @@ const Prompt2Diagram = () => {
     }
 
    // Use proper PlantUML encoding with deflate compression
-const encoded = btoa(plantUML);
-const plantUMLServerUrl = `https://www.plantuml.com/plantuml/svg/~1${encoded}`;
-    
+//const encoded = btoa(plantUML);
+//const plantUMLServerUrl = `https://www.plantuml.com/plantuml/svg/~1${encoded}`;
+  // Use PlantUML's text encoding format instead of binary
+const plantUMLServerUrl = `https://www.plantuml.com/plantuml/svg/~h${btoa(plantUML).replace(/\+/g, '-').replace(/\//g, '_')}`;  
     const link = document.createElement('a');
     link.href = svgUrl;
     link.download = 'network-diagram.svg';
